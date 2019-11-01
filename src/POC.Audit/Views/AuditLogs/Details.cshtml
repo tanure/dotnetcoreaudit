@@ -1,0 +1,58 @@
+﻿@model POC.Audit.Models.AuditLog
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AuditLog</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TablePk)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TablePk)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AuditAction)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AuditAction)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AuditUser)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AuditUser)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AuditDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AuditDate)
+        </dd>
+        <dt class="col-sm-2">
+            
+            @Html.DisplayNameFor(model => model.AuditData)
+            
+        </dt>
+        <dt class="col-sm-10">            
+            <pre id="json"></pre>
+            @Html.Raw("<script>document.getElementById('json').innerHTML = JSON.stringify(JSON.parse('" + Model.AuditData + "'), undefined, 4);</script>")
+            
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EntityType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EntityType)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

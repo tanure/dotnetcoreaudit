@@ -1,0 +1,55 @@
+﻿@model IEnumerable<POC.Audit.Models.AuditLog>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TablePk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuditAction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuditUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuditDate)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.EntityType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TablePk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuditAction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuditUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuditDate)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.EntityType)
+            </td>
+            <td>                
+                <a asp-action="Details" asp-route-id="@item.AuditId">Details</a>                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
